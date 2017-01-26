@@ -11,7 +11,10 @@
 @implementation Footman
 
 -(instancetype)init{
-    _healthPoints = 60;
+    
+    self.healthPoints = 60;
+    self.attackPower = 10;
+    
     return self;
 }
 
