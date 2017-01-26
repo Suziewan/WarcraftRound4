@@ -17,5 +17,10 @@
     
     return self;
 }
-
+- (void)damage:(int)damage{
+    self.healthPoints -= damage;
+}
+- (void)attack:(Unit *)enemy withDamage:(int)damage{
+    enemy.healthPoints -= damage;
+}
 @end
