@@ -9,7 +9,6 @@
 #import "Barracks.h"
 #import "Footman.h"
 
-
 @implementation Barracks
 
 - (instancetype)init
@@ -19,13 +18,15 @@
     return self;
 }
 -(Footman *)trainFootman{
-    
-    self.gold = self.gold -135;
-    self.food = self.food -2;
-    
+    //if ([object method] == true
     if ([self canTrainFootman] == YES) {
+         //moved subtract gold and food to here so it happens after we know we can train them.
+        //do 2 things:  1. take all of gold & make it equal all of gold -135, the cost to train a footman
+        self.gold = self.gold -135;
+        self.food = self.food -2;
+        //then, return or produce a footman
         return [[Footman alloc]init];
-    }else{
+    }else{ //otherwise do nothing, produce nothing
     return nil;
 }
 }
@@ -35,15 +36,14 @@
     }else{
         return YES;
     }
-}
+}           //repeat everything we did with Footman
 -(Peasant *)trainPeasant{
-    
-    self.gold = self.gold -90;
-    self.food = self.food -5;
-    
     if ([self canTrainPeasant] == YES) {
+        //moved subtract gold & food to here so  it happens after we know we can train them.
+        self.gold = self.gold -90;
+        self.food = self.food -5;     //then return a peasant
         return [[Peasant alloc]init];
-    }else{
+    }else{                          //otherwise, return nothing
         return nil;
     }
 }
